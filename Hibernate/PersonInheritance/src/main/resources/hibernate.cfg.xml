@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <!-- session-factory is a type of connection in hibernate framework. it
+        helps to save the data. -->
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/PersonInheritance</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">Winter@1899</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <!-- hbm2ddl.auto automatically creates the sql queries. "create" attribute
+            will automatically create the tables everytime, whether the table is existed
+            or not. "update" attribute will not create the table if it already exist. -->
+        <property name="hbm2ddl.auto">create</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <mapping class="com.stackroute.model.Employee"/>
+        <mapping class="com.stackroute.model.Owner"/>
+        <mapping class="com.stackroute.model.Person"/>
+
+
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,154 @@
+Tasks:
+
+1.)Model Classes:
+
+
+
+MongoDb
+
+Product{
+
+productId,
+userId,(seller)
+item name,
+description,  
+Item price (lowest from all the sellers),  
+discount,
+delivery charge
+Effective price including discount
+offers , 
+avg rating,
+user reviews, 
+seller name, 
+total seller count ,
+List<Images>,
+
+}
+
+
+
+PostgreSQL/Mongodb
+
+Users{
+
+userId,
+cartId;(random id to send to cart service)
+orderId;(random id)
+Name,
+Password
+Confirm Password(otp/mail/google)
+Account Type:BUYER,SELLER,GUEST
+}
+
+
+
+
+MongoDB
+Cart{
+
+cartId,(will get from user service)
+productId(Using Rest Tempelate),
+Quantity(max 4) from one seller,
+Date(product to be in cart for max 7 days),
+deliveryAddress;
+isCompleted;
+OrderDto order;
+deliveryCharge;
+TotalAmount;(<1000 the delcharge is applied else 0),
+
+
+}
+
+OrderDto{
+productId;
+sellerId,
+deliveryAddress
+
+
+}
+
+
+
+
+/addtoCart/{sellerid}/{poductid}
+{
+Send to CART Service using Rabbit MQ
+
+}
+
+
+
+
+
+
+Order{
+orderId;(will get from user service)
+deliveryDate;(+7 days)
+orderStatus;
+deliveredDate;(for 10 days return policy)
+isReturnAllowed;
+
+sellerFeedback;
+productFeedback;
+
+}
+
+
+Feedback-------1)Rating and 2)Comments---use inheritance mapping
+
+
+
+Wishlist{
+
+//product details
+
+}
+
+
+
+
+
+
+
+
+
+
+2.)Service Distribution
+
+Product Service-
+ 
+
+ 
+ 
+ 
+Account Service-
+ 
+ 
+ 
+ 
+  
+Cart Service-
+
+
+
+
+
+Order Service-
+
+*All Cod orders.We'll display the bank page if user proceeds to checkout using online method.(Not implementing payment gateway)
+
+
+
+Wishlist Service
+
+
+
+
+
+
+
+
+
+
+3.)Project Flow using RabbitMQ
+
